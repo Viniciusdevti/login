@@ -16,11 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{0D16F61E-0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Application", "src\Login.Application\Login.Application.csproj", "{830FCFAF-022C-4D3B-9301-47D7354726C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Domain", "Login.Domain\Login.Domain.csproj", "{18AEAE48-D047-4550-8FF4-62D47EDF7F89}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Domain", "src\Login.Domain\Login.Domain.csproj", "{18AEAE48-D047-4550-8FF4-62D47EDF7F89}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7A466DCD-1DB2-468B-B3D0-508B94B1EDCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Tests", "Login.Tests\Login.Tests.csproj", "{DE41ECFE-1288-40BA-A667-EDEFFF11F76B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Login.Tests", "src\Login.Tests\Login.Tests.csproj", "{DE41ECFE-1288-40BA-A667-EDEFFF11F76B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
