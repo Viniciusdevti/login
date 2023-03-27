@@ -1,5 +1,5 @@
+using Login.Api.Dtos.Inputs;
 using Login.Application.Services;
-using Login.Domain;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Login.Api.Controllers
@@ -17,7 +17,7 @@ namespace Login.Api.Controllers
         }
 
         [HttpPost()]
-        public async Task<IActionResult> Post(User user)
+        public async Task<IActionResult> Post(UserInput user)
         {
             await _userService.CreateUser(user, CancellationToken.None);
             return Ok();
@@ -26,7 +26,7 @@ namespace Login.Api.Controllers
         [HttpGet()]
         public async Task<IActionResult> Get(string email)
         {
-            var result = await _userService.VerifyUser(email, CancellationToken.None);
+             await _userService.VerifyIfUserExisting(email, CancellationToken.None);
             return Ok();
         }
     }

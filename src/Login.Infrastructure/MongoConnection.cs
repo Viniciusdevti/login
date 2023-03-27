@@ -11,7 +11,7 @@ namespace Login.Infrastructure
             try
             {
                 var client = new MongoClient("mongodb://localhost:27017/");
-                DB = client.GetDatabase("User");
+                DB = client.GetDatabase("Login");
             }
             catch (Exception ex)
             {
