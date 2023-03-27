@@ -9,7 +9,7 @@ namespace Login.Infrastructure.Repositories
 
         public UserRepository(MongoConnection mongoDB)
         {
-            _user = mongoDB.DB.GetCollection<User>("user");
+            _user = mongoDB.DB.GetCollection<User>("User");
         }
         public async Task Create(User user, CancellationToken cancellationToken)
         {
@@ -22,9 +22,19 @@ namespace Login.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public async Task<User> Get(string email, CancellationToken cancellationToken)
+        public async Task<bool> GetUserByEmail(string email, CancellationToken cancellationToken)
         {
-            return await _user.FindAsync(u => u.Email == email).Result.FirstAsync();
+            return await _user.FindAsync(u => u.Email.ToLower() == email.ToLower()) is not null;
+
+        }
+
+        public async Task<string> GetUserByEmailAndPassword(string email, string password, CancellationToken cancellationToken)
+        {
+            var user = await _user.FindAsync(u => u.Email.ToLower() == email.ToLower()
+                                        && u.Password.ToLower() == password.ToLower());
+
+            return user.ToList().Select(u => u.Name).First();
+                                       
         }
     }
 }

@@ -1,15 +1,13 @@
-﻿using Login.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Login.Api.Dtos.Inputs;
+using Login.Api.Dtos.Outputs;
+using Login.Domain;
 
 namespace Login.Infrastructure.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> Get(string email, CancellationToken cancellationToken);
+        Task<bool> GetUserByEmail(string email, CancellationToken cancellationToken);
+        Task<string> GetUserByEmailAndPassword(string email, string password, CancellationToken cancellationToken);
         Task Create(User user, CancellationToken cancellationToken);
         Task<User> Edit(User user, string email, CancellationToken cancellationToken);
     }
